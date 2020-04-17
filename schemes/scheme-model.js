@@ -6,7 +6,8 @@ module.exports = {
     findSteps,
     add,
     update,
-    remove
+    remove,
+    addStep
 }
 
 function find() {
@@ -59,5 +60,6 @@ function remove(id) {
 
 function addStep(stepData, id) {
     return db('steps')
-        .insert([{ scheme_id: id }, stepData])
+        // .insert(stepData)
+        .insert([{ scheme_id: id, step_number: stepData.step_number, instructions: stepData.instructions }])
 }
